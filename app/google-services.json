@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "865024855062",
+    "project_id": "postpc-ex7-nami",
+    "storage_bucket": "postpc-ex7-nami.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:865024855062:android:5463c0b352c78872283937",
+        "android_client_info": {
+          "package_name": "exercise.android.nami.sandwiches"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "865024855062-b745nrdachf733ln2sn7vq83vkf61bus.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNxX72WaXV_sA8nrNWX3qrpGqgsqbQiHw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "865024855062-b745nrdachf733ln2sn7vq83vkf61bus.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
