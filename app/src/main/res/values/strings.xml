@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Rachel\'s Sandwiches Gig</string>
+    <string name="order_now">Order now!</string>
+    <string name="comments">Comments:</string>
+    <string name="tahini">Tahini</string>
+    <string name="hummus">Hummus</string>
+    <string name="pickles">Pickles:</string>
+    <string name="name">Name:</string>
+    <string name="new_order">New Order</string>
 </resources>
