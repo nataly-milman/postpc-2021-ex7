@@ -7,4 +7,7 @@
     <string name="pickles">Pickles:</string>
     <string name="name">Name:</string>
     <string name="new_order">New Order</string>
+    <string name="change_order">Change order</string>
+    <string name="delete_order">Delete order</string>
+    <string name="edit_order">"Edit your order \n(it's in progress!)>"</string>
 </resources>

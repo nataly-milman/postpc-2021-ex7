@@ -17,6 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".NewOrderActivity"></activity>
+        <activity android:name=".EditYourOrderActivity"></activity>
+        <activity android:name=".YourOrderInMakingActivity"></activity>
+        <activity android:name=".YourOrderIsReadyActivity"></activity>
     </application>
 
 </manifest>

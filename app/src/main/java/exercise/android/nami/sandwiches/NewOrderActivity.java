@@ -28,8 +28,6 @@ public class NewOrderActivity extends AppCompatActivity {
         EditText commentsEdit;
         Slider picklesSlider;
         Button orderButton;
-
-//        App app;
         FirebaseFirestore db;
 
         private SharedPreferences sp;
@@ -37,12 +35,8 @@ public class NewOrderActivity extends AppCompatActivity {
 
         @Override
         protected void onCreate(@Nullable Bundle savedInstanceState) {
-
-                System.out.println("In on create NOA");
                 super.onCreate(savedInstanceState);
-
                 setContentView(R.layout.activity_new_order);
-//            app = new App();
             db = FirebaseFirestore.getInstance();
 
             sp = PreferenceManager.getDefaultSharedPreferences(this);
@@ -74,6 +68,10 @@ public class NewOrderActivity extends AppCompatActivity {
                     documentReference -> {
                         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
                         preferences.edit().putString("orderId", order.getId()).apply();
+                        Intent intent = new Intent(this, EditYourOrderActivity.class);
+                        intent.putExtra("order", order);
+                        startActivity(intent);
+                        finish();
                     }
             ).addOnFailureListener(e-> {
                 Toast.makeText(this, "Couldn't create order", Toast.LENGTH_SHORT).show();

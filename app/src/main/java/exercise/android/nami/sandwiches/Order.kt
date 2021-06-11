@@ -1,6 +1,8 @@
 package exercise.android.nami.sandwiches
 
-data class Order(
+import java.io.Serializable
+
+data class Order (
     var id: String = "",
     var customerName: String = "",
     var pickles: Int = 0,
@@ -8,4 +10,4 @@ data class Order(
     var tahini: Boolean = false,
     var comment:  String = "",
     var status:  String = ""
-)
+) : Serializable
