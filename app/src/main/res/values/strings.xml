@@ -9,5 +9,9 @@
     <string name="new_order">New Order</string>
     <string name="change_order">Change order</string>
     <string name="delete_order">Delete order</string>
-    <string name="edit_order">"Edit your order \n(it's in progress!)>"</string>
+    <string name="edit_order">"Edit your order)>"</string>
+    <string name="im_making">Your order is in the making…</string>
+    <string name="Rachels_working">Rachel is working on your order, she will let you know once it is ready.</string>
+    <string name="your_order_is_ready">Your order is ready!</string>
+    <string name="confirm">Got it!</string>
 </resources>

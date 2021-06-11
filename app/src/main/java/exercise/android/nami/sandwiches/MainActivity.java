@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     Order order = res.toObject(Order.class);
                     if (order == null || order.getStatus().equals("done")) {
-                        Intent intent = new Intent(this, MainActivity.class);
+                        Intent intent = new Intent(this, NewOrderActivity.class);
                         startActivity(intent);
                         finish();
                     } else {

@@ -80,7 +80,7 @@ public class EditYourOrderActivity extends AppCompatActivity {
                         Order order = value.toObject(Order.class);
                         assert order != null;
                         if (order.getStatus().equals("done")) {
-                            Intent intent = new Intent(this, MainActivity.class);
+                            Intent intent = new Intent(this, NewOrderActivity.class);
                             startActivity(intent);
                             finish();
                         } else {
@@ -133,9 +133,7 @@ public class EditYourOrderActivity extends AppCompatActivity {
             status.remove();
             app.resetOrderId();
             finish();
-        }).addOnFailureListener(e -> {
-            Toast.makeText(this, "Error deleting order", Toast.LENGTH_SHORT).show();
-        });
+        }).addOnFailureListener(e -> Toast.makeText(this, "Error deleting order", Toast.LENGTH_SHORT).show());
 
     }
 

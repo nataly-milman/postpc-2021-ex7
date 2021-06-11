@@ -31,6 +31,7 @@ public class App extends Application {
 
     public void resetOrderId() {
         this.orderId = "";
+        sp.edit().putString("orderId", "").apply();
     }
 
     public void saveOrderId(String id) {
