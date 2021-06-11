@@ -27,6 +27,8 @@ public class EditYourOrderActivity extends AppCompatActivity {
     Slider picklesSlider;
     Button orderButton;
     FirebaseFirestore db;
+    App app;
+    private SharedPreferences sp;
 
     ListenerRegistration status;
 
@@ -36,7 +38,10 @@ public class EditYourOrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_order);
 
         db = FirebaseFirestore.getInstance();
-//        sp = PreferenceManager.getDefaultSharedPreferences(this);
+        app = new App(this);
+        app.setOrderId();
+
+        sp = PreferenceManager.getDefaultSharedPreferences(this);
         hummus = findViewById(R.id.hummusCheckBox);
         tahini = findViewById(R.id.tahiniCheckBox);
         nameEdit = findViewById(R.id.nameEdit);
@@ -44,7 +49,6 @@ public class EditYourOrderActivity extends AppCompatActivity {
         picklesSlider = findViewById(R.id.picklesSlider);
         orderButton = findViewById(R.id.orderNowButton);
 
-        order = new Order();
         Button saveButton = findViewById(R.id.saveChangesButton);
         Button deleteButton = findViewById(R.id.deleteOrderButton);
 
@@ -66,6 +70,7 @@ public class EditYourOrderActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         status.remove();
+        app.resetOrderId();
     }
 
     private ListenerRegistration orderStatus() {
@@ -125,6 +130,8 @@ public class EditYourOrderActivity extends AppCompatActivity {
                 delete().addOnSuccessListener(u -> {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
+            status.remove();
+            app.resetOrderId();
             finish();
         }).addOnFailureListener(e -> {
             Toast.makeText(this, "Error deleting order", Toast.LENGTH_SHORT).show();

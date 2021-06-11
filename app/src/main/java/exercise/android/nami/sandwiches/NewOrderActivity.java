@@ -29,17 +29,14 @@ public class NewOrderActivity extends AppCompatActivity {
         Slider picklesSlider;
         Button orderButton;
         FirebaseFirestore db;
-
-        private SharedPreferences sp;
-
+        App app;
 
         @Override
         protected void onCreate(@Nullable Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.activity_new_order);
             db = FirebaseFirestore.getInstance();
-
-            sp = PreferenceManager.getDefaultSharedPreferences(this);
+            app = new App(this);
             hummus = findViewById(R.id.hummusCheckBox);
             tahini = findViewById(R.id.tahiniCheckBox);
             nameEdit = findViewById(R.id.nameEdit);
@@ -54,7 +51,8 @@ public class NewOrderActivity extends AppCompatActivity {
 
         private void placeOrder(){
             if (TextUtils.isEmpty(nameEdit.getText())){
-                nameEdit.setError("Please enter your name");
+                Toast toast = Toast.makeText(this, "Please enter your name", Toast.LENGTH_SHORT);
+                toast.show();
                 return;
             }
             order.setHummus(hummus.isChecked());
@@ -62,8 +60,10 @@ public class NewOrderActivity extends AppCompatActivity {
             order.setPickles((int) picklesSlider.getValue());
             order.setCustomerName(nameEdit.getText().toString());
             order.setComment(commentsEdit.getText().toString());
+            order.setStatus("waiting");
             String uuid = UUID.randomUUID().toString();
             order.setId(uuid);
+            app.saveOrderId(uuid);
             db.collection("orders").document(uuid).set(order).addOnSuccessListener(
                     documentReference -> {
                         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
