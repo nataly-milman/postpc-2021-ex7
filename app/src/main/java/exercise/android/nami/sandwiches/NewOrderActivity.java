@@ -61,10 +61,8 @@ public class NewOrderActivity extends AppCompatActivity {
             order.setCustomerName(nameEdit.getText().toString());
             order.setComment(commentsEdit.getText().toString());
             order.setStatus("waiting");
-            String uuid = UUID.randomUUID().toString();
-            order.setId(uuid);
-            app.saveOrderId(uuid);
-            db.collection("orders").document(uuid).set(order).addOnSuccessListener(
+            app.saveOrderId(order.getId());
+            db.collection("orders").document(order.getId()).set(order).addOnSuccessListener(
                     documentReference -> {
                         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
                         preferences.edit().putString("orderId", order.getId()).apply();

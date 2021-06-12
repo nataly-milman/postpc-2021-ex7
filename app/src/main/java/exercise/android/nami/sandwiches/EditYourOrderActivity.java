@@ -28,7 +28,6 @@ public class EditYourOrderActivity extends AppCompatActivity {
     Button orderButton;
     FirebaseFirestore db;
     App app;
-    private SharedPreferences sp;
 
     ListenerRegistration status;
 
@@ -41,7 +40,6 @@ public class EditYourOrderActivity extends AppCompatActivity {
         app = new App(this);
         app.setOrderId();
 
-        sp = PreferenceManager.getDefaultSharedPreferences(this);
         hummus = findViewById(R.id.hummusCheckBox);
         tahini = findViewById(R.id.tahiniCheckBox);
         nameEdit = findViewById(R.id.nameEdit);
